@@ -10,6 +10,12 @@ spring:
       circuitbreaker:
         enabled: true
 
+jwt:
+  access-secret: ${ACCESS_SECRET}
+  refresh-secret: ${REFRESH_SECRET}
+  access-token-expiration: ${ACCESS_TOKEN_EXPIRATION}
+  refresh-token-expiration: ${REFRESH_TOKEN_EXPIRATION}
+
 eureka:
   client:
     service-url:
