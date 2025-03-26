@@ -20,6 +20,7 @@ jwt:
   refresh-secret: ${REFRESH_SECRET}
   access-token-expiration: ${ACCESS_TOKEN_EXPIRATION}
   refresh-token-expiration: ${REFRESH_TOKEN_EXPIRATION}
+  cookie-path: ${COOKIE_PATH}
 
 eureka:
   client:
