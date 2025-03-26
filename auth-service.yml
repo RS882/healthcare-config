@@ -11,9 +11,20 @@ spring:
       port: ${REDIS_PORT}
 
   cloud:
+    discovery:
+      enabled: true
     openfeign:
       circuitbreaker:
         enabled: true
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 3000
+            loggerLevel: full
+          user-service:
+            connect-timeout: 1500
+            read-timeout: 2500
 
 jwt:
   access-secret: ${ACCESS_SECRET}
