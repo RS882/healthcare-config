@@ -32,6 +32,7 @@ jwt:
   access-token-expiration-ms: ${ACCESS_TOKEN_EXPIRATION_MS}
   refresh-token-expiration-ms: ${REFRESH_TOKEN_EXPIRATION_MS}
   cookie-path: ${COOKIE_PATH}
+  max-tokens: ${MAX_TOKEN}
 
 prefix:
   refresh: ${REFRESH_PREFIX}
