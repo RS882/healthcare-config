@@ -29,8 +29,8 @@ spring:
 jwt:
   access-secret: ${ACCESS_SECRET}
   refresh-secret: ${REFRESH_SECRET}
-  access-token-expiration: ${ACCESS_TOKEN_EXPIRATION}
-  refresh-token-expiration: ${REFRESH_TOKEN_EXPIRATION}
+  access-token-expiration_ms: ${ACCESS_TOKEN_EXPIRATION_MS}
+  refresh-token-expiration_ms: ${REFRESH_TOKEN_EXPIRATION_MS}
   cookie-path: ${COOKIE_PATH}
 
 eureka:
