@@ -33,6 +33,11 @@ jwt:
   refresh-token-expiration-ms: ${REFRESH_TOKEN_EXPIRATION_MS}
   cookie-path: ${COOKIE_PATH}
 
+prefix:
+  refresh: ${REFRESH_PREFIX}
+  blocked: ${BLOCKED_PREFIX}
+  blacklist: ${BLACKLIST_PREFIX}
+
 eureka:
   client:
     service-url:
