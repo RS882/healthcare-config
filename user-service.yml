@@ -15,6 +15,9 @@ spring:
     hibernate:
       ddl-auto: update
 
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+
 eureka:
   client:
     service-url:
