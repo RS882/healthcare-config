@@ -40,6 +40,7 @@ management:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+    disable-swagger-default-url: true
   api-docs:
     path: /v3/api-docs
 
