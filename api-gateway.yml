@@ -87,3 +87,8 @@ springdoc:
 #        url: /v3/api-docs/patient
 #      - name: Appointment Service
 #        url: /v3/api-docs/appointment
+
+request-id:
+  prefix: ${REQUEST_ID_PREFIX:request-id:}
+  ttl: ${REQUEST_ID_TTL:30s}
+  value: ${REQUEST_ID_VALUE:test-gateway}
