@@ -91,4 +91,4 @@ springdoc:
 request-id:
   prefix: ${REQUEST_ID_PREFIX:request-id:}
   ttl: ${REQUEST_ID_TTL:30s}
-  value: ${REQUEST_ID_VALUE:test-gateway}
+  value: ${REQUEST_ID_VALUE:gateway}
