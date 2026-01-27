@@ -33,7 +33,7 @@ jwt:
   access-secret: ${ACCESS_SECRET}
   refresh-secret: ${REFRESH_SECRET}
   access-token-expiration: ${ACCESS_TOKEN_EXPIRATION_MS:15m}
-  refresh-token-expiration: ${REFRESH_TOKEN_EXPIRATION_MS}
+  refresh-token-expiration: ${REFRESH_TOKEN_EXPIRATION_MS:30d}
   cookie-path: ${COOKIE_PATH}
   max-tokens: ${MAX_TOKEN}
 
@@ -71,3 +71,12 @@ springdoc:
 
 cors:
   allowed-origins: ${ALLOWED_ORIGINS}
+
+
+request-id:
+  prefix: ${REQUEST_ID_PREFIX:request-id:}
+  ttl: ${REQUEST_ID_TTL:30s}
+  value: ${REQUEST_ID_VALUE:auth-service}
+
+header-request-id:
+  name: ${HEADER_REQUEST_ID_NAME:X-Request-Id}
