@@ -93,4 +93,5 @@ request-id:
   ttl: ${REQUEST_ID_TTL:30s}
   value: ${REQUEST_ID_VALUE:gateway}
 
-header-request-id: X-Request-Id
+header-request-id:
+  name: ${HEADER_REQUEST_ID_NAME:X-Request-Id}
