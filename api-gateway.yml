@@ -41,12 +41,6 @@ spring:
             - Method=GET
           filters:
             - name: AuthValidation
-              args:
-                validatePath: /api/v1/auth/validation
-                forwardHeaders: [authorization, x-request-id]
-                userIdHeader: X-User-Id
-                rolesHeader: X-User-Roles
-
 
         - id: user-service-docs
           uri: lb://user-service
@@ -110,3 +104,9 @@ request-id:
 
 header-request-id:
   name: ${HEADER_REQUEST_ID_NAME:X-Request-Id}
+
+auth-validation:
+  auth-service-uri: ${AUTH_SERVICE_URI:lb://auth-service}
+  validate-path: ${VALIDATE_PATH:/api/v1/auth/validation}
+  userIdHeader: ${USER_ID_HEADER:X-User-Id}
+  rolesHeader: $${ROLES_HEADER:X-User-Roles}
