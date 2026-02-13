@@ -47,7 +47,7 @@ spring:
           predicates:
             - Path=/v3/api-docs/user
           filters:
-            - RewritePath=/v3/api-docs/user, /v3/api-docs
+            - RewritePath=/v3/api-docs/user, /api/v3/api-docs
 
         - id: patient-service
           uri: lb://patient-service
