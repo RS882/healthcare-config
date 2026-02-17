@@ -100,7 +100,7 @@ springdoc:
 
 request-id:
   prefix: ${REQUEST_ID_PREFIX:request-id:}
-  ttl: ${REQUEST_ID_TTL:30s}
+  ttl: ${REQUEST_ID_TTL:PT30S}
   value: ${REQUEST_ID_VALUE:gateway}
 
 header-request-id:
@@ -112,4 +112,12 @@ auth-validation:
 
 user-context:
   userContextHeader: ${USER_CONTEXT_HEADER:X-User-Context}
-  ttl: ${USER_CONTEXT_TTL:30s}
+  ttl: ${USER_CONTEXT_TTL:PT30S}
+
+ecurity:
+  user-context:
+    issuer: api-gateway
+    key-id: gateway-key-1
+    default-ttl: ${USER_CONTEXT_DEFAULT_TTL:PT30S}
+    private-key-pem: ${USER_CONTEXT_PRIVATE_KEY_PEM:}
+    private-key-path: ${USER_CONTEXT_PRIVATE_KEY_PATH:./secrets/gateway-user-context-private.pem}
