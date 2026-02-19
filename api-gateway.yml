@@ -114,7 +114,7 @@ user-context:
   userContextHeader: ${USER_CONTEXT_HEADER:X-User-Context}
   ttl: ${USER_CONTEXT_TTL:PT30S}
 
-ecurity:
+security:
   user-context:
     issuer: api-gateway
     key-id: gateway-key-1
