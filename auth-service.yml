@@ -72,7 +72,6 @@ springdoc:
 cors:
   allowed-origins: ${ALLOWED_ORIGINS}
 
-
 request-id:
   prefix: ${REQUEST_ID_PREFIX:request-id:}
   ttl: ${REQUEST_ID_TTL:30s}
