@@ -57,3 +57,13 @@ request-id:
 
 header-request-id:
   name: ${HEADER_REQUEST_ID_NAME:X-Request-Id}
+
+user-context:
+  userContextHeader: ${USER_CONTEXT_HEADER:X-User-Context}
+
+security:
+  user-context:
+    issuer: api-gateway
+    key-id: gateway-key-1
+    public-key-pem: ${USER_CONTEXT_PUBLIC_KEY_PEM:}
+    public-key-path: ${USER_CONTEXT_PUBLIC_KEY_PATH:./secrets/gateway-user-context-public.pem}
