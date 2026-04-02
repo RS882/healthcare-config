@@ -22,7 +22,11 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.xml
 
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    topic:
+      user-registered: ${USER_REGISTERED_TOPIC:user.registered.v1}
+    consumer:
+      user-service-group: ${USER_REGISTERED_GROUP_ID:user-service-group}
 
 eureka:
   client:
