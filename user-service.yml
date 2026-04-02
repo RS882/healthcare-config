@@ -21,6 +21,17 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.xml
 
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+
+    consumer:
+      group-id: user-service-group
+      auto-offset-reset: earliest
+
+    producer:
+      properties:
+        spring.json.add.type.headers: false
+
 eureka:
   client:
     service-url:
@@ -67,3 +78,4 @@ security:
     key-id: gateway-key-1
     public-key-pem: ${USER_CONTEXT_PUBLIC_KEY_PEM:}
     public-key-path: ${USER_CONTEXT_PUBLIC_KEY_PATH:./secrets/gateway-user-context-public.pem}
+
