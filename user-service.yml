@@ -21,12 +21,32 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-master.xml
 
+app:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
-    topic:
-      user-registered: ${USER_REGISTERED_TOPIC:user.registered.v1}
-    consumer:
-      user-service-group: ${USER_REGISTERED_GROUP_ID:user-service-group}
+    topics:
+      user-registered:
+        name: ${USER_REGISTERED_TOPIC:user.registered.v1}
+        partitions: ${USER_REGISTERED_PARTITIONS:3}
+        replicas: ${USER_REGISTERED_REPLICAS:1}
+
+      user-updated:
+        name: ${USER_UPDATED_TOPIC:user.updated.v1}
+        partitions: ${USER_UPDATED_PARTITIONS:3}
+        replicas: ${USER_UPDATED_REPLICAS:1}
+
+      user-deleted:
+        name: ${USER_DELETED_TOPIC:user.deleted.v1}
+        partitions: ${USER_DELETED_PARTITIONS:3}
+        replicas: ${USER_DELETED_REPLICAS:1}
+
+      notification-email-requested:
+        name: ${NOTIFICATION_EMAIL_REQUESTED_TOPIC:notification.email.requested.v1}
+        partitions: ${NOTIFICATION_EMAIL_REQUESTED_PARTITIONS:3}
+        replicas: ${NOTIFICATION_EMAIL_REQUESTED_REPLICAS:1}
+    groups:
+      user-service:
+        id: ${USER_REGISTERED_GROUP_ID:user-service-group}
 
 eureka:
   client:
