@@ -48,6 +48,11 @@ app:
       user-service:
         id: ${USER_REGISTERED_GROUP_ID:user-service-group}
 
+  outbox:
+    cleanup:
+      cron: "0 0 3 * * *"
+      retention-days: 7
+
 eureka:
   client:
     service-url:
