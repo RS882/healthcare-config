@@ -52,6 +52,9 @@ app:
     cleanup:
       cron: "0 0 3 * * *"
       retention-days: 7
+    recovery:
+      cron: "0 */5 * * * *"
+      timeout-minutes: 15
 
   processed-event:
     cleanup:
