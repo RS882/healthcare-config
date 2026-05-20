@@ -47,6 +47,11 @@ app:
     groups:
       user-service:
         id: ${USER_REGISTERED_GROUP_ID:user-service-group}
+    producer:
+      transaction-id-prefix: user-service-tx-
+      properties:
+        enable.idempotence: true
+        acks: all
 
   outbox:
     cleanup:
