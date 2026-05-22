@@ -11,8 +11,16 @@ spring:
       port: ${REDIS_PORT}
 
   cloud:
+    config:
+      fail-fast: true
+      retry:
+        initial-interval: 2000
+        max-attempts: 10
+        multiplier: 1.5
+
     discovery:
       enabled: true
+
     openfeign:
       circuitbreaker:
         enabled: true
