@@ -2,9 +2,6 @@ server:
   port: 8083
 
 spring:
-  application:
-    name: patient-service
-
   datasource:
     url: jdbc:mysql://${DB}?serverTimezone=UTC
     username: ${DB_USERNAME}

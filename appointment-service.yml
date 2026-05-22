@@ -2,9 +2,6 @@ server:
   port: 8084
 
 spring:
-  application:
-    name: appointment-service
-
   datasource:
     url: jdbc:mysql://${DB}?serverTimezone=UTC
     username: ${DB_USERNAME}

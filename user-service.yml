@@ -5,9 +5,6 @@ server:
     context-path: /api
 
 spring:
-  application:
-    name: user-service
-
   datasource:
     url: jdbc:mysql://${DB}?serverTimezone=UTC
     username: ${DB_USERNAME}
