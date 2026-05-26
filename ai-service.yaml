@@ -3,7 +3,7 @@ server:
   forward-headers-strategy: framework
   servlet:
     context-path: /api
-
+spring:
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
