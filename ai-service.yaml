@@ -3,13 +3,21 @@ server:
   forward-headers-strategy: framework
   servlet:
     context-path: /api
+#spring:
+#  ai:
+#    openai:
+#      api-key: ${OPENAI_API_KEY}
+#      chat:
+#        options:
+#          model: gpt-4o-mini
+
 spring:
   ai:
-    openai:
-      api-key: ${OPENAI_API_KEY}
+    ollama:
+      base-url: http://localhost:11434
       chat:
         options:
-          model: gpt-4o-mini
+          model: llama3:latest
 
 eureka:
   client:
