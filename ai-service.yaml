@@ -14,10 +14,10 @@ server:
 spring:
   ai:
     ollama:
-      base-url: http://localhost:11434
+      base-url: ${OLLAMA_BASE_URL}
       chat:
         options:
-          model: llama3:latest
+          model: ${OLLAMA_MODEL}
 
 eureka:
   client:
