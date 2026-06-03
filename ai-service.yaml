@@ -17,7 +17,11 @@ spring:
       base-url: ${OLLAMA_BASE_URL}
       chat:
         options:
-          model: ${OLLAMA_MODEL}
+          model: ${ai.model}
+
+ai:
+  provider: ${AI_PROVIDER}
+  model: ${AI_MODEL}
 
 eureka:
   client:
@@ -34,6 +38,7 @@ management:
     web:
       exposure:
         include: "*"
+
   endpoint:
     health:
       show-details: always
