@@ -19,6 +19,10 @@ spring:
         options:
           model: ${ai.model}
 
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}?authSource=${MONGO_AUTH_DATABASE}
+
 ai:
   provider: ${AI_PROVIDER}
   model: ${AI_MODEL}
