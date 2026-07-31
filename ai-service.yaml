@@ -35,6 +35,13 @@ ai:
   provider: ${AI_PROVIDER}
   model: ${AI_MODEL}
 
+cache:
+  default-ttl: 30m
+
+  active-prompt:
+    cache-name: active-prompts
+    ttl: 1h
+
 eureka:
   client:
     service-url:
