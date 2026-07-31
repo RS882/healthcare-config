@@ -39,7 +39,6 @@ cache:
   default-ttl: 30m
 
   active-prompt:
-    cache-name: active-prompts
     ttl: 1h
 
 eureka:
