@@ -54,6 +54,29 @@ spring:
           filters:
             - RewritePath=/v3/api-docs/user, /api/v3/api-docs
 
+        - id: ai-service-admin
+          uri: lb://ai-service
+          predicates:
+            - Path=/api/v1/ai/admin/**
+          filters:
+            - name: AuthValidation
+            - name: AddSignedUserContext
+
+        - id: ai-service
+          uri: lb://ai-service
+          predicates:
+            - Path=/api/v1/ai/**
+          filters:
+            - name: AuthValidation
+            - name: AddSignedUserContext
+
+        - id: ai-service-docs
+          uri: lb://ai-service
+          predicates:
+            - Path=/v3/api-docs/ai
+          filters:
+            - RewritePath=/v3/api-docs/ai, /api/v3/api-docs
+
         - id: patient-service
           uri: lb://patient-service
           predicates:
@@ -98,12 +121,12 @@ springdoc:
     urls:
       - name: Auth Service
         url: /v3/api-docs/auth
+
       - name: User Service
         url: /v3/api-docs/user
-#      - name: Patient Service
-#        url: /v3/api-docs/patient
-#      - name: Appointment Service
-#        url: /v3/api-docs/appointment
+
+      - name: AI Service
+        url: /v3/api-docs/ai
 
 request-id:
   prefix: ${REQUEST_ID_PREFIX:request-id:}
