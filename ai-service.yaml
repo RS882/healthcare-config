@@ -35,6 +35,13 @@ ai:
   provider: ${AI_PROVIDER}
   model: ${AI_MODEL}
 
+  prompt:
+    activation-retry:
+      max-attempts: 3
+      initial-delay: 50ms
+      multiplier: 2.0
+      max-delay: 300ms
+
 cache:
   default-ttl: 30m
 
