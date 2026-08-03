@@ -1,39 +1,34 @@
 server:
   port: 8087
   forward-headers-strategy: framework
+
   servlet:
     context-path: /api
-#spring:
-#  ai:
-#    openai:
-#      api-key: ${OPENAI_API_KEY}
-#      chat:
-#        options:
-#          model: gpt-4o-mini
 
 spring:
   ai:
     ollama:
-      base-url: ${OLLAMA_BASE_URL}
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+
       chat:
         options:
-          model: ${ai.model}
+          model: ${AI_MODEL:llama3:latest}
 
   data:
     mongodb:
       uri: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}?authSource=${MONGO_AUTH_DATABASE}
 
     redis:
-      host: ${REDIS_HOST}
-      port: ${REDIS_PORT}
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
       timeout: 2s
 
   cache:
     type: redis
 
 ai:
-  provider: ${AI_PROVIDER}
-  model: ${AI_MODEL}
+  provider: ${AI_PROVIDER:ollama}
+  model: ${AI_MODEL:llama3:latest}
 
   prompt:
     activation-retry:
@@ -51,9 +46,11 @@ cache:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA}
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+
     register-with-eureka: true
     fetch-registry: true
+
   instance:
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
@@ -62,7 +59,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include:
+          - health
+          - info
+          - metrics
+          - prometheus
 
   endpoint:
     health:
@@ -71,7 +72,7 @@ management:
 springdoc:
   api-docs:
     path: /v3/api-docs
+
   swagger-ui:
     path: /swagger-ui.html
     disable-swagger-default-url: true
-#    enabled: false  # Swagger UI отображается только через gateway
