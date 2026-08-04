@@ -122,7 +122,7 @@ cors:
 request-id:
   prefix: ${REQUEST_ID_PREFIX:request-id:}
   ttl: ${REQUEST_ID_TTL:30s}
-  value: ${REQUEST_ID_VALUE:user-service}
+  value: ${USER_SERVICE_REQUEST_ID_VALUE:user-service}
 
 header-request-id:
   name: ${HEADER_REQUEST_ID_NAME:X-Request-Id}

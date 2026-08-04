@@ -44,6 +44,11 @@ cache:
   active-prompt:
     ttl: 1h
 
+request-id:
+  prefix: ${REQUEST_ID_PREFIX:request-id:}
+  ttl: ${REQUEST_ID_TTL:30s}
+  value: ${AI_SERVICE_REQUEST_ID_VALUE:ai-service}
+
 eureka:
   client:
     service-url:
