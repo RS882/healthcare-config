@@ -53,10 +53,14 @@ eureka:
     fetch-registry: true
 
   instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: false
+    hostname: host.docker.internal
+    instance-id: ${spring.application.name}:${random.value}
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+    home-page-url: http://host.docker.internal:8087/api
+    status-page-url: http://host.docker.internal:8087/api/actuator/info
+    health-check-url: http://host.docker.internal:8087/api/actuator/health
 
 management:
   endpoints:
