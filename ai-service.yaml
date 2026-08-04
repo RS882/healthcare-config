@@ -27,6 +27,34 @@ spring:
   cache:
     type: redis
 
+  spring:
+    cloud:
+      config:
+        fail-fast: true
+        retry:
+          initial-interval: 2000
+          max-attempts: 10
+          multiplier: 1.5
+
+      discovery:
+        enabled: true
+
+      openfeign:
+        circuitbreaker:
+          enabled: true
+
+        client:
+          config:
+            default:
+              connect-timeout: 2000
+              read-timeout: 3000
+              logger-level: basic
+
+            userAuthInfoClient:
+              connect-timeout: 1000
+              read-timeout: 2000
+              logger-level: basic
+
 ai:
   provider: ${AI_PROVIDER:ollama}
   model: ${AI_MODEL:llama3:latest}
@@ -43,6 +71,9 @@ cache:
 
   active-prompt:
     ttl: 1h
+
+  user-auth-info:
+    ttl: 30s
 
 request-id:
   prefix: ${REQUEST_ID_PREFIX:request-id:}
