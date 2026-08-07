@@ -127,6 +127,10 @@ request-id:
 header-request-id:
   name: ${HEADER_REQUEST_ID_NAME:X-Request-Id}
 
+internal-request:
+  key-prefix: ${INTERNAL_REQUEST_PREFIX:internal-request:}
+  header-name: ${HEADER_INTERNAL_REQUEST_ID_NAME:X-Internal-Request-Id}
+
 user-context:
   userContextHeader: ${USER_CONTEXT_HEADER:X-User-Context}
 
